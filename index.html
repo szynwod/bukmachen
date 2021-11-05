@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+	body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: cursive;
+  }
+
+ input,
+    textarea {
+    width: 100%;
+    padding: 5px;
+    outline: none;
+	resize: none;
+  }
+
+  label {
+    line-height: 1.9rem;
+  }
+
+  input[type="submit"] {
+   transform: translate(2.2%);
+   padding: 3px;
+   margin-top: 0.6rem;
+   font-family: cursive;
+   font-weight: bold;
+  }
+
+ fieldset {
+   padding: 20px 40px;
+ }
+	</style>
+<form>
+      <fieldset>
+        <legend>NAPIERDALAMY!</legend>
+        <div class="form-control">
+          <label for="name">STAWKA</label>
+          <input type="name" id="stawka" required />
+        </div>
+
+        <div class="form-control">
+          <label for="name">PEWNIAK</label>
+          <input type="name" id="remis" required />
+        </div>
+																	
+																	<div class="form-control">
+          <label for="name">REMIS</label>
+          <input type="name" id="pewniak" required />
+        </div>
+
+        <div class="form-control">
+          <label for="message">WYNIK</label>
+          <textarea
+            readonly
+			id="message"
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+      </fieldset>
+</form>
+<center><button onclick="myFunction()">OK</button></center>
+
+<script>
+function myFunction() {
+  	var stawka = parseFloat(document.getElementById("stawka").value);
+	var remis = parseFloat(document.getElementById("remis").value);
+	var pewniak = parseFloat(document.getElementById("pewniak").value);
+	
+	var obliczenia = remis / (pewniak + remis) * stawka;
+	var obliczenia2 = stawka - obliczenia;
+	var obliczenia3 = (pewniak * obliczenia) * 0.12;
+	var obliczenia4 = (pewniak * obliczenia) - obliczenia3;
+	var obliczenia5 = obliczenia4 - stawka;
+	var wiadomosc = ('STAWKA NA PEWNIAKA '+obliczenia.toFixed(2)+'zł \nSTAWKA NA REMIS '+obliczenia2.toFixed(2)+'zł \nNA CZYSTO '+obliczenia5.toFixed(2)+'zł');
+	
+  document.getElementById("message").innerHTML = wiadomosc;
+}
+</script>
+
+</body>
+</html>
