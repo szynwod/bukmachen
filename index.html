@@ -72,12 +72,12 @@ function myFunction() {
 	var remis = parseFloat(document.getElementById("remis").value);
 	var pewniak = parseFloat(document.getElementById("pewniak").value);
 	
-	var obliczenia = remis / (pewniak + remis) * stawka;
-	var obliczenia2 = stawka - obliczenia;
-	var obliczenia3 = (pewniak * obliczenia) * 0.12;
-	var obliczenia4 = (pewniak * obliczenia) - obliczenia3;
+	var obliczenia1 = remis / (pewniak + remis) * stawka;
+	var obliczenia2 = stawka - obliczenia1;
+	var obliczenia3 = (pewniak * obliczenia1) * 0.12;
+	var obliczenia4 = (pewniak * obliczenia1) - obliczenia3;
 	var obliczenia5 = obliczenia4 - stawka;
-	var wiadomosc = ('STAWKA NA PEWNIAKA '+obliczenia.toFixed(2)+'zł \nSTAWKA NA REMIS '+obliczenia2.toFixed(2)+'zł \nNA CZYSTO '+obliczenia5.toFixed(2)+'zł');
+	var wiadomosc = ('STAWKA NA PEWNIAKA '+obliczenia2.toFixed(2)+'zł \nSTAWKA NA REMIS '+obliczenia1.toFixed(2)+'zł \nNA CZYSTO '+obliczenia5.toFixed(2)+'zł');
 	
   document.getElementById("message").innerHTML = wiadomosc;
 }
